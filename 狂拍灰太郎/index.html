@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>狂拍灰太狼</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="count">0</h1>
+        <div class="progress"></div>
+        <button class="start">开始游戏</button>
+        <div class="rules">游戏规则</div>
+        <div class="rule">
+            <p>游戏规则：</p>
+            <p>1.游戏时间：60s</p>
+            <p>2.拼手速，殴打灰太狼+10分</p>
+            <p>3.殴打小灰灰-10分</p>
+            <a href="#" class="close">[关闭]</a>
+        </div>
+        <div class="mask">
+            <p class="over">GAME OVER</p>
+            <button class="again">重新开始</button>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../jquery-3.5.1.js"></script>
+<script>
+    $(function() {
+        // 1.监听点击游戏规则，游戏规则淡入出现
+        $(".rules").click(function() {
+            $(".rule").stop().fadeIn(100)
+        })
+        // 2.监听关闭按钮，游戏规则淡出
+        $(".close").click(function() {
+            $(".rule").stop().fadeOut(100)
+        })
+    })
+</script>

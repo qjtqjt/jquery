@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    var arr=[1,2,3,4]
+    /*
+       1. map:
+            第一个参数：遍历到的元素，
+            第二个参数：遍历到的元素下标,
+            第三个参数：显示数组
+
+        注意： 原生的map方法只能遍历数组，不能遍历伪数组
+    
+    */ 
+    arr.map(function(val, index,array) {
+        // console.log(val,index,array)
+    })
+    
+     // 伪数组
+     var obj={0:1, 1:2, 2:3, 3:4, length:3}
+    //  obj.map(function(val, index, array) {
+    //     // console.log(val,index,array)
+    //  })
+
+     var res = $.map(arr,function(val, index) {
+        console.log(val,index)
+     })
+     var res2 = $.foe(arr, function(val,index) {
+         console.log(val,index)
+     })
+</script>
+<body>
+    
+</body>
+</html>

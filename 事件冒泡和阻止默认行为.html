@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+           width: 200px;
+           height: 200px;
+           background: red;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="https://element.eleme.cn/#/zh-CN/component/dialog">我是a</a>
+    <input type="text">
+    <input type="submit">
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    $(".father").on("click", function() {
+        alert("father")
+    })
+    $(".son").on("click",function(){
+        alert("son")
+        // 阻止事件冒泡
+        // return false;
+        // event.stopPropagation()
+    })
+    $("a").click(function() {
+        // 阻止默认行为
+        // return false
+        event.preventDefault()
+    })
+
+    // 自动触发,会触发事件冒泡，默认行为
+    $(".son").trigger("click")
+    // 自动触发,不会触发事件冒泡，默认行为
+    $(".son").triggerHandler("click")
+
+    $("input[type='submit']").click(function() {
+        alert("input[type='submit']")
+    })
+
+    
+    // 注意：自动触发a标签，trigger和triggerHandler都不会触发它的默认行为，如想要触发它的默认行为，要在a标签包裹着《span》标签
+</script>

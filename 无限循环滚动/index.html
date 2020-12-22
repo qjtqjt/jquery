@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul>li {
+            list-style: none;
+        }
+        .box {
+            margin: 100px auto;
+            width: 642px;
+            height: 299px;
+            border: 1px solid palegreen;
+            overflow: hidden;
+        }
+        ul {
+            width: 3860px;
+            height: 299px;
+            background-color: #000;
+        }
+        li {
+            width: 300px;
+            height: 299px;
+            border: 1px solid black;
+            line-height: 299px;
+            text-align: center;
+            float: left;
+            font-size: 30px;
+        }
+        img {
+            width: 300px;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="../选项卡/img/1.jpeg" alt=""></li>
+            <li><img src="../选项卡/img/2.jpeg" alt=""><</li>
+            <li><img src="../选项卡/img/3.jpeg" alt=""><</li>
+            <li><img src="../选项卡/img/4.jpeg" alt=""><</li>
+            <li><img src="../选项卡/img/1.jpeg" alt=""><</li>
+            <li><img src="../选项卡/img/2.jpeg" alt=""><</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="../jquery-3.5.1.js"></script>
+<script>
+    $(function() {
+        // 1.定义偏移量
+        var offset = 0;
+        var timer
+        // 2.让图片滚动起来
+        function getTimer() {
+            timer = setInterval(function() {
+                // 3.每次向左偏移20
+                offset += -10;
+                // 4.向左偏移总数小于等于2560（4张图片加起来的值）那么偏移量复原到原来位置
+                if (offset <= -1200) {
+                    offset = 0
+                }
+                $("ul").css("marginLeft", offset)
+            },50)
+        }
+        getTimer()
+        // 5.监听鼠标的移入移出
+        $("li").hover(function() {
+            // 5.1移入清除定时器
+            clearInterval(timer)
+            // 5.2除了当前元素，其他元素背景颜色为正常
+            $(this).siblings().fadeTo(100, 1)
+            // 5.3当前元素添加蒙版
+            $(this).fadeTo(100,0.5)
+        }, function() {
+            // 5.4移出定时器继续
+            getTimer()
+            // 5.5所有的li背景颜色正常
+            $("li").fadeTo(100,1)
+        })
+    })
+</script>

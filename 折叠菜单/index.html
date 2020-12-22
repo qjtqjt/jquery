@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul>li {
+            list-style: none;
+        }
+        .first {
+            font-size: 14px;
+            width:  500px;
+            margin: 100px auto;
+            border-radius: 2px;
+        }
+        .first-li {
+            position: relative;
+            width: 500px;
+            border: 1px solid black;
+            border-top: none;
+        }
+        .first-li>span {
+            display: inline-block;
+            padding: 10px 10px;
+        }
+        .icon {
+            position: absolute;
+            font-size: large;
+            right: 10%;
+        }
+        .first-lis>.icon {
+            transform: rotate(90deg);
+        }
+        .first-li:first-child {
+            border-top: 1px solid black;
+        }
+        .next {
+            background-color: blueviolet;
+            display: none;
+        }
+        .next-li {
+            padding: 10px 10px;
+            border-bottom: 1px solid white;
+        }
+        .next-li:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul class="first">
+        <li class="first-li">
+            <span>一级菜单</span>
+            <span class="icon">></span>
+            <ul class="next">
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+            </ul>
+        </li>
+        <li class="first-li">
+            <span>一级菜单</span>
+            <span class="icon">></span>
+             <ul class="next">
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+            </ul>
+        </li>
+        <li class="first-li">
+            <span>一级菜单</span>
+            <span class="icon">></span>
+             <ul class="next">
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+            </ul>
+        </li>
+        <li class="first-li">
+            <span>一级菜单</span>
+            <span class="icon">></span>
+             <ul class="next">
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+            </ul>
+        </li>
+        <li class="first-li">
+            <span>一级菜单</span>
+            <span class="icon">></span>
+             <ul class="next">
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+                <li class="next-li"><span>二级菜单</span></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+<script src="../jquery-3.5.1.js"></script>
+<script>
+    $(".first-li").hover(function() {
+        //方法一：1.1找到当前的二级菜单展开和收起切换
+        $(this).children(".next").slideToggle(1000)
+        // // 1.2 当前的一级菜单旋转
+        $(this).addClass("first-lis")
+        // // 1.3 非当前的一级菜单旋转回来
+        $(this).siblings().removeClass("first-lis")
+
+        // 方法二：
+        // 1:找到当前二级元素
+        // var $sub = $(this).children(".next")
+        // // 1.2让当前二级元素菜单显示
+        // $sub.slideDown(1000)
+        // // 1.3拿到所有非当前二级元素
+        // var $other = $(this).siblings().children(".next")
+        // // 1.4 非当前二级元素隐藏
+        // $other.slideUp(1000)
+        // // 1.5 当前的一级菜单旋转
+        // $(this).addClass("first-lis")
+        // // // 1.5 非当前的一级菜单旋转回来
+        // $(this).siblings().removeClass("first-lis")
+    })
+
+
+    // 总结：两个方法的区别在与slideDown：展开就不会收起 slideUp：收起就不会展开，    slideToggle：展开和收起相互切换
+</script>

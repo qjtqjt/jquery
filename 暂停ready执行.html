@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.5.1.js"></script>
+    <script>
+        // 2.$.holdReady(true):作用暂停ready的执行
+        $.holdReady(true)
+        // 1.ready的作用：等界面上所有的dom元素加载完毕再执行
+        $(document).ready(function () {
+            alert("ready")
+        })
+       
+    </script>
+</head>
+<body>
+    <button>点击</button>
+    <script>
+         var but = document.getElementsByTagName("button")[0]
+            console.log(but)
+            but.onclick = function () {
+                // 3. $.holdReady(false):取消暂停ready的执行
+                $.holdReady(false)
+            }
+    </script>
+</body>
+</html>

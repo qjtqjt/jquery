@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+           
+        }
+        .one {
+            background-color: tomato;
+        }
+        .two {
+            background-color: turquoise;
+        }
+    </style>
+</head>
+<body>
+    <button>操作属性</button>
+    <button>累加属性</button>
+    <button>关键字</button>
+    <div class="one"></div>
+    <div class="two"></div>
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    $("button").eq(0).click(function() {
+        // 修改属性
+        $(".one").animate({
+            width: "300"
+        },1000, function() {
+
+        })
+        // two距离左边500
+        // $(".two").animate({
+        //     marginLeft: 500
+        // },5000, function() {
+
+        // })
+
+        // two自定义动画节奏，默认swing
+        $(".two").animate({
+            width: "300"
+        },5000, "linear", function() {
+
+        })
+    })
+
+
+    // 累加属性
+    $("button").eq(1).click(function() {
+        $(".one").animate({
+            width: "+=100"
+        }, 5000, function() {
+            console.log("每点击一次宽度添加100")
+        })
+    })
+
+    // 关键字  hide:隐藏  toggle：隐藏显示切换
+    // $("button").eq(2).click(function() {
+    //     $(".two").animate({
+    //         width: "hide"
+    //     },1000)
+    // })
+    $("button").eq(2).click(function() {
+        $(".two").animate({
+            width: "toggle"
+        },1000)
+    })
+</script>

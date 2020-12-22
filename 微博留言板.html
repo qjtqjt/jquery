@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul>li {
+            list-style: none;
+        }
+        .contest {
+            width: 800px;
+            height: auto;
+            border: 1px solid black;
+            margin: 100px auto;
+        }
+        .text {
+            resize: none;
+            border: none;
+            outline: none;
+            width: 800px;
+            height: 150px;
+            background-color: rgb(209, 204, 139);
+        }
+        .bnt {
+            padding: 6px 25px;
+            background-color: #CCC;
+            color: cornsilk;
+            margin: 10px 0 10px 720px;
+            border: 0;
+        }
+        .list>li{
+            padding: 10px;
+            border-top: 1px solid #cccccc;
+        }
+        .del {
+            margin-left: 550px;
+            color: #ccc;
+        }
+        .del>span {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contest">
+        <textarea class="text"></textarea>
+        <button class="bnt" >发布</button>
+        <ul class="list">
+            <li>
+                <p class="list-test">
+                   
+                    新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊
+                    新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊
+                    新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊
+                </p>
+                <p class="del"> <span>2020-12-21:16:14:45</span>删除</p>
+            </li>
+            <li>
+                <p class="list-test">
+                    新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊
+                    新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊
+                    新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊新的数据出来拉啊啊
+                </p>
+                <p class="del">删除</p>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    // 实时监听 propertychange
+    $("body").delegate(".text", "propertychange input", function() {
+        if ($(this).val().length > 0) {
+            $(".bnt").prop("display", false)
+            $(".bnt").css("backgroundColor", "coral")
+        } else {
+            $(".bnt").prop("display", true)
+            $(".bnt").css("backgroundColor", "#ccc")
+        }
+    })
+    $(".bnt").click(function() {
+        var $test = $(".text").val()
+        var $weibo = createEle($test)
+        $(".list").prepend($weibo)
+    })
+    function createEle(test) {
+        var $weibo = $("<li><p class='list-test'>"+test+"</p><p class='del'><span>"+formartDate()+"</span>删除</p> </li>")
+        return $weibo
+    }
+
+    function formartDate() {
+        var date = new Date();
+        var arr = [date.getFullYear() + "-", 
+                   date.getMonth() +1 + "-", 
+                   date.getDate()+":",
+                   date.getHours()+":",
+                   date.getMinutes()+":",
+                   date.getSeconds()];
+        return arr.join("")
+    }
+    $(".del").click(function() {
+        $(this).parent().remove()
+    })
+</script>

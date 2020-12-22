@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    function test() {
+        alert("click")
+    }
+    function test1() {
+        alert("click22")
+    }
+    $("button").click(test)
+    $("button").on("click", test1)
+    $("button").off("click",test1)
+</script>

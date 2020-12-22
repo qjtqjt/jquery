@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul>li {
+            list-style: none;
+        }
+        .box {
+            width: 497px;
+            height: 361px;
+            border: 1px solid black;
+            margin: 10px auto;
+        }
+        .nav {
+            background-color: chocolate;
+            overflow: hidden;
+        }
+        .nav>li {
+            float: left;
+            padding: 10px 46px;
+        }
+        .cur {
+            background-color: #cccccc;
+        }
+        .imgbox>li {
+            display: none;
+        }
+        .imgbox>.showimg {
+            display: block;
+        }
+        .imgbox>li img {
+            width: 497px;
+            height: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="nav">
+            <li class="cur"><span>美女</span></li>
+            <li><span>气流</span></li>
+            <li><span>蔬菜</span></li>
+            <li><span>帅哥</span></li>
+        </ul>
+        <ul class="imgbox">
+            <li class="showimg"><img src="./img/1.jpeg" alt=""></li>
+            <li><img src="./img/2.jpeg" alt=""></li>
+            <li><img src="./img/3.jpeg" alt=""></li>
+            <li><img src="./img/4.jpeg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="../jquery-3.5.1.js"></script>
+<script>
+    var $index;
+    var $showImg
+    $(".box li").hover(function() {
+        // 当前tab添加样式, siblings():除了当前元素，其他元素移除样式
+       $(this).addClass("cur").siblings().removeClass("cur")
+        // 找到当前的下标
+       $index = $(this).index()
+        // 找到当前下标的图片
+       $showImg = $(".imgbox>li").eq($index)
+        //   给当前下标的图片显示,sibings():除了当前元素其他元素移除 showimg样式
+       $showImg.addClass("showimg").siblings().removeClass("showimg")
+       
+    })
+</script>

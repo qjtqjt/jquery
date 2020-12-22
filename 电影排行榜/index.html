@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul>li {
+            list-style: none;
+        }
+        ul {
+            width: 300px;
+            border: 1px solid black;
+            margin: 10px auto;
+            font-size: 16px;
+        }
+        h4 {
+            font-size: 20px;
+            color: crimson;
+            padding: 8px 0 8px 23px;
+        }
+        ul>li {
+            padding-left: 5px;
+            border-top: 1px dotted #cccccc;
+            padding: 8px 0 8px 10px;
+        }
+        li>span {
+            width: 20px;
+            height: 20px;
+            background-color: #cccccc;
+            margin-right: 5px;
+            padding: 1px 5px
+        }
+        ul>li:nth-child(-n+4) .numble{
+            background-color: crimson;
+        }
+        p {
+          padding: 6px 6px 0 0;
+          display: none;
+        }
+        p> img {
+            margin-right: 10px;
+            width: 100px;
+            height: 110px;
+            float: left;
+        }
+        p> span {
+            font-size: 10px;
+            line-height: 20px;
+        }
+        .current .content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <h4>电影牌行榜</h4>
+        <li>
+            <span class="numble">1</span>
+            电影名称
+            <p class="content">
+                <img src="./img/see.jpg" alt="">
+                <span>
+                    个用字符串表示的，一个或多个空格分隔的事件类型和可选的命名空间，值表示事件绑定的处理函数。
+                    方法绑定事件处理程序到当前选定的jQuery对象中的元。
+                </span>
+            </p>
+        </li>
+        <li>
+            <span class="numble">2</span>
+            电影名称
+            <p class="content">
+                <img src="./img/see.jpg" alt="">
+                <span>
+                    个用字符串表示的，一个或多个空格分隔的事件类型和可选的命名空间，值表示事件绑定的处理函数。
+                    方法绑定事件处理程序到当前选定的jQuery对象中的元。
+                </span>
+            </p>
+        </li>
+        <li>
+            <span class="numble">3</span>
+            电影名称
+            <p class="content">
+                <img src="./img/see.jpg" alt="">
+                <span>
+                    个用字符串表示的，一个或多个空格分隔的事件类型和可选的命名空间，值表示事件绑定的处理函数。
+                    方法绑定事件处理程序到当前选定的jQuery对象中的元。
+                </span>
+            </p>
+        </li>
+        <li>
+            <span class="numble">4</span>
+            电影名称
+            <p class="content">
+                <img src="./img/see.jpg" alt="">
+                <span>
+                    个用字符串表示的，一个或多个空格分隔的事件类型和可选的命名空间，值表示事件绑定的处理函数。
+                    方法绑定事件处理程序到当前选定的jQuery对象中的元。
+                </span>
+            </p>
+        </li>
+        <li>
+            <span class="numble">5</span>
+            电影名称
+            <p class="content">
+                <img src="./img/see.jpg" alt="">
+                <span>
+                    个用字符串表示的，一个或多个空格分隔的事件类型和可选的命名空间，值表示事件绑定的处理函数。
+                    方法绑定事件处理程序到当前选定的jQuery对象中的元。
+                </span>
+            </p>
+        </li>
+    </ul>
+</body>
+</html>
+<script src="../jquery-3.5.1.js"></script>
+<script>
+    // 移入
+    // $("li").mouseenter(function() {
+    //     $(this).addClass("current")
+    // })
+    // // 移出
+    // $("li").mouseleave(function() {
+    //     $(this).removeClass("current")
+    // })
+    // 简化版
+    $("li").hover(function() {
+        $(this).addClass("current")
+    }, function() {
+        $(this).removeClass("current")
+    })
+</script>

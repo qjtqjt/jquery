@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .baba {
+            background-color: black;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-left: 50px;
+            position: relative;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bigBox">
+        <div class="baba">
+            <div class="son"></div>
+        </div>
+    </div>
+    <button>设置</button>
+    <button>获取</button>
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    // 获取
+    $("button").eq(1).click(function() {
+        // 获取元素与窗口的偏移位
+      console.log( $(".son").offset().left)   /// 100
+      $(".baba").width("500px")
+        //  获取元素距离定位元素的偏移位
+      console.log($(".son").position().left)   //  50
+    })
+
+    // 设置
+    $("button").eq(0).click(function() {
+        //   设置元素与窗口的偏移量
+        $(".son").offset({
+            left: 10
+        })
+
+        // 注意点：position方法只能获取不能设置
+        // $(".son").position({
+        //     left: 10
+        // })
+        // 通过以下方法可以设置
+        $(".son").css({
+            left: "10px"
+        })
+    })
+</script>

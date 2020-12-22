@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul>li{
+            list-style: none;
+            line-height: 40px;
+        }
+        .box {
+            text-align: center;
+            width: 300px;
+            margin: 100px auto;
+        }
+        .first {
+            background-color: red;
+            width: 300px;
+            height: 40px;
+        }
+        .first>li {
+            width: 100px;
+            height: 50px;
+            float: left;
+        }
+        
+        .second {
+            background-color: slategray;
+            width: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="first">
+            <li class="first-list">一级菜单
+                <ul class="second">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                </ul>
+            </li>
+            <li class="first-list">一级菜单
+                <ul class="second">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                </ul>
+            </li>
+            <li class="first-list">一级菜单
+                <ul class="second">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    /*
+        方法一：mouseenter():移入事件
+                mouseleave():移出事件
+               slideDown()：展开事件
+               slideUp():收起事件
+    */ 
+    $(".first-list").mouseenter(function() {
+        // 找到当前元素下子元素.second，让他显示
+        var $sub = $(this).children(".second")
+        $sub.stop()
+        $sub.slideDown(1000)
+    })
+
+    // $(".first-list").mouseleave(function() {
+    //     // 找到当前元素下子元素.second，让他隐藏
+    //     var $sub = $(this).children(".second")
+    //     $sub.stop()
+    //     $sub.slideUp(1000)
+    // })
+
+
+    /*
+        方法二：hover():包括了移入移出事件
+               slideToggle()：包括了展开收起事件
+               是方法一的简写版
+    */ 
+    // $(".first-list").hover(function() {
+    //     // 1.1找到当前元素的子元素.second
+    //     var $sub = $(this).children(".second")
+    //     // 1.2清除前一次的运动
+    //     $sub.stop()
+    //     // 1.3切换展开和收起
+    //     $sub.slideToggle(1000)
+    // })
+    
+</script>

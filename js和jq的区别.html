@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://img.alicdn.com/tps/i4/TB1cQ6locieb18jSZFvSuuI3FXa.jpg_240x5000q100.jpg_.webp" alt="">
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        // window.onload = function() {
+        //     // 1.通过原生js入口函数可以拿到Dom元素
+        //     var img = document.getElementsByTagName("img")[0]
+        //     // 2.通过原生js入口函数可以拿到Dom元素的宽高
+        //     var width = window.getComputedStyle(img).width
+        //     console.log(width)
+        // }
+        // $(document).ready(function () {
+        //     // 1.通过jq入口函数可以拿到Dom元素
+        //     var $img = $("img")[0]
+        //     // 2.通过jq入口函数不可以拿到Dom元素的宽高
+        //     var width = $img.width
+        // })
+
+        // 通过1，2总结：
+        // 原生Js和jq入口函数的加载模式不同
+        // 原生js会等到dom元素加载完毕，并且图片也加载完毕才执行
+        // jq会等到Dom元素架在你完毕，但是不会等到图片也加载完毕才执行
+
+
+
+        // 3 原生的js如果编写了多个入口函数，后面的入口函数会覆盖前面的
+        // jQuery编写多个入口文件，后面的的入口函数不会覆盖前面的 
+
+        // window.onload = function() {
+        //     alert(1)
+        // }
+        // window.onload = function() {
+        //    alert(2)
+        // }
+        $(document).ready(function () {
+           alert(1)
+        })
+        $(document).ready(function() {
+            alert(2)
+        })
+    </script> 
+</body>
+</html>

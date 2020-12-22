@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    $(function () {
+        var $box = $("#box")
+        console.log($box)
+        var $p = $("<p>我是一个段落</p>")
+        $box.append($p)
+        var box1 = document.getElementsByClassName("box1")
+        var $box1 = $(box1)
+        console.log($box1)
+    })
+</script>
+<body>
+    <div id="box">我是box</div>
+    <div class="box1">我是box1</div>
+</body>
+</html>

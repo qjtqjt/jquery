@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span class="span1"></span>
+    <span class="span1"></span>
+    <input type="checkbox" checked>
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    // attr
+
+    // 设置属性：找到多少个元素都会设置多少个元素
+    // $("span").attr("class", "nicai")
+    // // 如果设置的节点属性没有，会自动添加
+    // $("span").attr("name", "qjt")
+    // // 移除属性class，name的属性节点
+    // $("span").removeAttr("class name")
+
+    // eq():查找span的第几个元素, 
+    // prop():设置prop（）
+   $("span").eq(0).prop("demo","it666")
+   $("span").eq(1).prop("dome", "lnj")
+    console.log($("input").prop("checked"))
+    // 获取props:默认只返回第一个
+    $("span").prop("dome")
+    // removeprop()
+    $("span").eq(0).removeProp("demo")
+
+
+    // attr和 prop的区别
+    $("input").prop("checked")    // true 或者  false
+    $("input").attr("checked")     // checked 或者  undefined
+    // 总结：官方推荐：操作属性节点时，具有true和false两个属性的属性节点，如cheacked，selected或者disabled使用prop(),其他的使用attr()
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+           width: 200px;
+           height: 200px;
+           background: red;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="https://element.eleme.cn/#/zh-CN/component/dialog">我是a</a>
+    <input type="text">
+    <input type="submit">
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    /* 想要自定义事件必须满足两个条件：
+        1.事件必须是通过on来绑定
+        2.事件必须通过trigger来触发
+    */
+    $(".son").on("myClick", function() {
+        alert("son")
+    })
+    $(".son").trigger("myClick")
+</script>

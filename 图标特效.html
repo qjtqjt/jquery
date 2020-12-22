@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul>li {
+            list-style: none;
+        }
+        ul {
+            margin:100px auto;
+            width: 400px;
+            border: 1px solid black;
+            overflow: hidden;
+            
+        }
+        li {
+            float: left;
+            text-align: center;
+            margin: 34px;
+        }
+        span {
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            border: 1px solid palegoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><span></span>
+            <p>百度</p></li>
+        <li><span></span>
+            <P>淘宝</P></li>
+        <li><span></span>
+           <P>新浪</P></li>
+        <li><span></span>
+            <P>网易</P></li>
+        <li><span></span>
+            <P>搜狐</P></li>
+        <li><span></span>
+            <P>腾讯</P></li>
+        <li><span></span>
+            <P>优酷</P></li>
+        <li><span></span>
+            <P>京东</P></li>
+    </ul>
+</body>
+</html>
+<script src="./jquery-3.5.1.js"></script>
+<script>
+    $("li").mouseenter(function() {
+        $(this).children("span").animate({
+            marginTop: -50
+        }, 1000, function() {
+            $(this).css("top", "50px")
+        })
+    })
+</script>

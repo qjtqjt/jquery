@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .right,.left {
+            width: 150px;
+            height: 200px;
+            position: fixed;
+            top: 200px;
+        }
+        .right {
+            float: right;
+            background-color: red;
+            right: 0;
+        }
+        .left {
+            float: left;
+            background-color: royalblue;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="right"></div>
+    <div class="left"></div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/><br/><br/><br/><br/><br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</body>
+</html>
+<script src="./jquery-3.3.1.min.js"></script>
+<script>
+    $(window).scroll(function() {
+        var offset = $("html,body").scrollTop()
+        if (offset >= 150) {
+            $("div").show(1000)
+        } else {
+            $("div").hide(1000)
+        }
+    })
+</script>

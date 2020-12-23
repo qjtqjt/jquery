@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>我是1个li</li>
+        <li>我是2个li</li>
+        <li>我是3个li</li>
+    </ul>
+    <button>添加li</button>
+</body>
+</html>
+<script src="./jquery-3.3.1.min.js"></script>
+<script>
+    $("button").click(function() {
+        $("ul").append("<li>我是新增的li</li>")
+    })
+
+    // 动态添加的li不会被打印
+    $("ul>li").click(function() {
+        console.log($(this).html())
+    })
+    
+    // delegate:动态添加的li也能被打印出来
+    $("ul").delegate("li", "click", function() {
+        console.log($(this).html())
+    })
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background: rosybrown;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>
+<script src="./jquery-3.3.1.min.js"></script>
+<script>
+    // 1.mouseover和mouseout子元素被移入移出，也会触发父亲的事件
+    $(".father").mouseover(function() {
+        console.log("移入")
+    })
+    $(".father").mouseout(function() {
+        console.log("移出")
+    })
+    // 2.mouseenter和mouseleave事件，子元素移入移出不会触发父亲的事件
+    $(".father").mouseenter(function() {
+        console.log("移入")
+    })
+    $(".father").mouseleave(function() {
+        console.log("移出")
+    })
+
+    // 最好的写法，推荐
+    $(".father").focus(function() {
+        console.log("我是移入")
+    }, function() {
+        console.log("w我是移出")
+    })
+
+</script>

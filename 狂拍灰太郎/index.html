@@ -37,5 +37,126 @@
         $(".close").click(function() {
             $(".rule").stop().fadeOut(100)
         })
-    })
+        // 3.点击开始
+        $('.start').click(function() {
+            // 3.1，开始按钮消失
+            $(".start").stop().fadeOut(100)
+            // 3.2:调用进度条
+            progressHandler()
+            // 3.3:灰太狼动画开始
+            startWolfAnmation()
+        })
+        // 4.点击重新开始
+        $(".again").click(function() {
+            // 4.1:重新开始页面隐藏
+            $(".mask").stop().fadeOut(100)
+            // 4.2:调用进度条
+            progressHandler()
+            // 4.3:开始灰太狼动画
+            startWolfAnmation()
+            // 4.4:分数重归0
+            $(".count").text(0)
+        })
+
+        // 专门处理进度条
+        function progressHandler() {
+            // 1。刚开始进来是满的
+                $(".progress").css({
+                    width: 180
+                })
+            var timer = setInterval( function() {
+                // 2.获取进度条宽度
+                var progressWidth = $(".progress").width()
+                // 3.每秒减1
+                progressWidth -= 1;
+                $(".progress").css({
+                    width: progressWidth
+                })
+                // 4.如果进度条小于0，那么就清除定时器
+                if(progressWidth <=0) {
+                    clearInterval(timer);
+                    // 5.重新开始页面显示
+                    $(".mask").stop().fadeIn(100)
+                    // 6.进度条等于0时，停止灰太狼动画
+                    stropWolfAnmation()
+                }
+            }, 100)
+        }
+        var worlTimer;
+        var wolfInderStart;
+        var wolfInderEnt;
+        // 定义一个专门处理灰太狼动画的方法
+        function startWolfAnmation() {
+            // 1.定义两个数组保存所有灰太狼和小灰灰的图片
+            var wolf_1 = ['./img/h0.png','./img/h1.png', './img/h2.png', './img/h3.png', './img/h4.png','./img/h5.png', './img/h6.png', './img/h7.png','./img/h8.png','./img/h9.png' ];
+            var wolf_2 = ['./img/x0.png','./img/x1.png', './img/x2.png', './img/x3.png','./img/x4.png','./img/x5.png', './img/x6.png', './img/x7.png', './img/x8.png', './img/x9.png'];
+            // 2.定义出现的位置
+            var arrPos = [
+                {left: "100px", top: "115px"},
+                {left: "20px", top: "160px"},
+                {left: "190px", top: "142px"},
+                {left: "105px", top: "193px"},
+                {left: "19px", top: "221px"},
+                {left: "202px", top: "212px"},
+                {left: "120px", top: "275px"},
+                {left: "30px", top: "295px"},
+                {left: "209px", top: "297px"},
+            ]
+            // 3.创建一个图片
+            var $wolfImage = $("<img src='' class='wolfImage'>");
+            // 随机获取图片的位置
+            var posIndex = Math.round(Math.random() * 8);
+            // 4.设置图片显示的位置
+            $wolfImage.css({
+                position: "absolute",
+                left: arrPos[posIndex].left,
+                top: arrPos[posIndex].top
+            });
+            // 随机获取数组类型灰太狼或者小灰灰
+            var wolrType = Math.round(Math.random()) == 0 ? wolf_1 : wolf_2
+            // 5.设置图片的内容，每隔一段时间切换一张图片
+            wolfInderStart = 0;
+            wolfInderEnt = 5;
+            worlTimer = setInterval(function() {
+                if (wolfInderStart > wolfInderEnt) {
+                    $wolfImage.remove();
+                    clearInterval(worlTimer);
+                    // 重新调用处理灰太狼动画的方法
+                    startWolfAnmation()
+                }
+                $wolfImage.attr("src", wolrType[wolfInderStart])
+                wolfInderStart++
+            }, 300)
+            
+            // 6.将图片添加到界面上
+            $(".container").append($wolfImage)
+            // 7.调用处理游戏规则的方法
+            gameRules($wolfImage)
+        }
+        //停止
+        function stropWolfAnmation() {
+            $(".wolfImage").remove();
+            clearInterval(worlTimer);
+        }
+        
+        function gameRules($wolfImage) {
+            $wolfImage.one('click', function() {
+                // 拿到当前图片地址
+               var $src = $(this).attr("src")
+                //根据拿到的图片地址区分灰太狼还是小灰灰
+                var flag = $src.indexOf("h")
+                // 如果是小灰灰就-10
+                if (flag >= 0) {
+                    $(".count").text(parseInt($(".count").text())+10)
+                } else {
+                    $(".count").text(parseInt($(".count").text())-10)
+                }
+                // 拍打的开始照片5-9
+                wolfInderStart = 5;
+                wolfInderEnt = 9;
+
+            })
+        }
+        
+    }) 
 </script>

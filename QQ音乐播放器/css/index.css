@@ -13,7 +13,6 @@ html,body {
 .header {
     width: 100%;
     height: 45px;
-    background-color: #1d1d1d;
 }
 .logo{
     float: left;
@@ -30,7 +29,6 @@ html,body {
 .content {
     width: 100%;
     height: 460px;
-    background-color: aqua;
 }
 .register {
     float: right;
@@ -47,7 +45,6 @@ html,body {
 .content_in, .footer_in {
     width: 1200px;
     height: 100%;
-    background-color: coral;
     margin: 0 auto;
 }
 .content_in_left {
@@ -60,7 +57,6 @@ html,body {
 .content_in_toolbar {
     width: 100%;
     height: 40px;
-    background-color: #1d1d1d;
     
 }
 
@@ -127,11 +123,9 @@ html,body {
 .title_check {
     width: 50px;
     height: 50px;
-    background-color: seagreen;
 }
 .sing {
     width: 55%;
-    background-color: royalblue;
     height: 50px;
 }
 .sing_num {
@@ -145,7 +139,6 @@ html,body {
 .sing_ci {
     height: 50px;
     width: 20%;
-    background-color: salmon;
 }
 .sing_num_list {
     float: right;
@@ -186,7 +179,6 @@ html,body {
     float: right;
     width: 400px;
     height: 100%;
-    background-color: wheat;
 }
 .right_content {
     color: rgb(255, 255,255, 0.5);
@@ -223,56 +215,56 @@ html,body {
     color: #31c27c;
 }
 .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
     height: 80px;
-    background-color: burlywood;
 }
 .footer_in {
     width: 1200px;
     height: 100%;
     margin: 0 auto;
-    background-color: cornflowerblue;
+    padding-top: 15px;
 }
 .footer_in a {
     text-decoration: none;
     display: inline-block;
     color: #fff;
-    background: url("../images/player.png");
-    margin-right: 20px;
+    margin-right: 19px;
 }
-.footer_in a:nth-child(1) {
+.music_pre {
+    background: url("../images/player.png");
     width: 19px;
     height: 20px;
     background-position: 0 -30px;
 }
-.footer_in a:nth-child(3) {
+.music_next {
+    background: url("../images/player.png");
     width: 21px;
     height: 23px;
     background-position: 0 -52px;
 }
-.footer_in a:nth-child(2) {
+.music_play {
     width: 21px;
     height: 29px;
-    background-position: 0 0;
+    background: url("../images/player.png");
+    vertical-align: -3px;
+}
+.music_play2 {
+    background-position: -30px 0;
 }
 .music_propress_info {
     display: inline-block;
     width: 670px;
     height: 40px;
-    background-color: royalblue;
 }
 .music_propress_top {
     width: 100%;
     height: 30px;
-    background-color: #000;
     color: #fff;
 }
 .music_propress_name {
     float: left;
     opacity: 0.5;
+    margin-top: 5px;
 }
 .music_propress_name:hover {
     opacity: 1;
@@ -304,36 +296,55 @@ html,body {
     top: -5px;
     left: 100px;
 }
-.footer_in a:nth-child(4) {
-    width: 26px;
-    height: 25px;
-    background-position: 0 -205px;
+.music_mode{
+    background: url("../images/player.png");
+    width: 29px;
+    height: 22px;
+    background-position: 0 -208px;
 }
-.footer_in a:nth-child(5){
+.music_mode1 {
+    background-position: 0 -260px;
+}
+.music_mode2 {
+    background-position: 0 -74px;
+}
+.music_mode3 {
+    background-position: 0 -232px;
+}
+.music_fav{
+    background: url("../images/player.png");
     width: 24px;
     height: 21px;
     background-position: 0 -96px;
 }
-.footer_in a:nth-child(6) {
+.music_fav2 {
+    background-position: -30px -96px;
+}
+.music_down {
+    background: url("../images/player.png");
     width: 22px;
     height: 21px;
     background-position: 0 -120px;
 }
-.footer_in a:nth-child(7) {
+.music_comment {
+    background: url("../images/player.png");
     width: 24px;
     height: 24px;
     background-position: 0 -400px;
 }
-.footer_in a:nth-child(8) {
+.music_only {
+    background: url("../images/player.png");
     width: 74px;
     height: 27px;
     background-position: 0 -281px;
+}
+.music_only2 {
+    background-position: 0 -310px;
 }
 .music_voice_info {
     display: inline-block;
     width: 100px;
     height: 40px;
-    background-color: salmon;
 }
 .music_voice_info a:nth-child(1) {
     width: 26px;
@@ -361,4 +372,24 @@ html,body {
     border-radius: 50%;
     top: -5px;
     left: 20px;
+}
+.mask_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background: url('../images/lnj.jpg') no-repeat 0 0;
+    background-size: cover;
+    filter: blur(100px);
+}
+.mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0,0, 0.35);
 }
